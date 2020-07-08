@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 import Spinner from 'react-bootstrap/Spinner'
 
-import Post from '../Components/Post'
-import NewPost from '../Components/NewPost'
-import EditPost from '../Components/EditPost'
+import Post from '../components/Post'
+import NewPost from '../components/NewPost'
+import EditPost from '../components/EditPost'
 const blogURL = 'http://localhost:3001/posts'
 
 export default class Blog extends Component {
@@ -74,10 +74,10 @@ export default class Blog extends Component {
             .then(res => res.json())
             .then(json => {
                 const posts = [...this.state.posts]
-                const postIndex = posts.findIndex( post => post.id === id)
+                const postIndex = posts.findIndex(post => post.id === id)
                 posts.splice(postIndex, 1)
-                this.setState({posts})
-                
+                this.setState({ posts })
+
             })
     }
 
