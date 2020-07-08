@@ -25,10 +25,14 @@ export default function NewPost(props) {
             .then(res => res.json())
             .then(json => {
 
-                setTitle('')
-                setContent('')
-                setShow(false)
-                props.addNewPost(json.post)
+                if (json.post) {
+                    setTitle('')
+                    setContent('')
+                    setShow(false)
+                    props.addNewPost(json.post)
+                } else {
+                    alert("Oops, something went wrong! Check that the 'Title' and 'Content' have text and try again!")
+                }
             })
     }
 
@@ -67,7 +71,12 @@ export default function NewPost(props) {
 
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>Close</Button>
-                            <Button type="submit" variant="primary">Save Post</Button>
+                            {
+                                title.length > 0 && content.length > 0 ?
+                                    <Button type="submit" variant="primary">Save Post</Button>
+                                    :
+                                    null
+                            }
                         </Modal.Footer>
                     </Form>
                 </Modal.Body>

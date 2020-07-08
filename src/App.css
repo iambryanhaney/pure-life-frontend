@@ -16,3 +16,23 @@ body {
   background-size: cover;
   background-color: rgb(255,255,255);
 }
+
+
+.nav-pills .nav-link.active {
+  background: #343a40;
+  color: #00FF00;
+}
+
+.nav-link {
+  color: #343a40;
+}
+
+.btn-primary{
+  background: #343a40;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  color: #00FF00;
+  background: #5e6266;
+
+}

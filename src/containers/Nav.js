@@ -10,6 +10,8 @@ export default function NavSite() {
                 <NavLink to="/" exact activeStyle={{ color: '#00FF00' }}>Home </NavLink>
                 <NavLink to="/blog" activeStyle={{ color: '#00FF00' }}>Blog </NavLink>
                 <NavLink to="/about" activeStyle={{ color: '#00FF00' }}>About </NavLink>
+                <NavLink to="/holism" activeStyle={{ color: '#00FF00' }}>Holism </NavLink>
+                <NavLink to="/pricing" activeStyle={{ color: '#00FF00' }}>Pricing </NavLink>
             </Nav>
         </Navbar>
     )
