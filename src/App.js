@@ -16,24 +16,30 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 
 const signupURL = 'http://localhost:3001/signup'
+const userLoginURL = 'http://localhost:3001/auth/login'
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       loggedIn: false,
       is_admin: false,
-      user: undefined,
       redirect: null
     }
   }
+
+  componentDidMount() {
+    if (window.localStorage.auth_token) {
+      this.setState({
+        loggedIn: true,
+        is_admin: window.localStorage.is_admin,
+      })
+    }
+  }
+
   logout = () => {
     delete window.localStorage.auth_token
-    this.setState({
-      loggedIn: false,
-      is_admin: false,
-      user: undefined,
-      redirect: '/'
-    })
+    delete window.localStorage.is_admin
+    window.location.reload()
   }
   setUser = user => {
     this.setState({
@@ -56,7 +62,7 @@ class App extends React.Component {
           <Route path='/pricing' exact render={() => <Pricing />} />
           <Route path='/logout' exact render={() => this.logout} />
           <Route path='/signup' exact render={() => <Signup setUser={this.setUser} signupURL={signupURL} />} />
-          <Route path='/login' exact render={() => <Login />} />
+          <Route path='/login' exact render={() => <Login loginURL={userLoginURL} setUser={this.setUser} />} />
         </Container>
       </Router >
     )
