@@ -31,6 +31,7 @@ export default class Login extends Component {
                 if (json.user) {
                     window.localStorage.auth_token = json.auth_token
                     window.localStorage.is_admin = json.user.is_admin
+                    window.localStorage.first_name = json.user.first_name
                     this.props.setUser(json.user)
                 } else {
                     this.setState({ errors: json.errors })
