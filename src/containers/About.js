@@ -7,9 +7,12 @@ export default function About() {
         <div>
             <h1> Meet +About </h1>
             <Card style={{ width: '90%', margin: '10px auto' }}>
+                <div className="profile-intro">
                 <Card.Img variant="top" src={ProfilePic} />
+                <Card.Title>Michael Ray Wilson </Card.Title>
+                </div>
                 <Card.Body>
-                    <Card.Title>Michael Ray Wilson </Card.Title>
+
                     <Card.Text>
                         Michael's path as a holistic practitioner began when he moved to Austin, TX in 2007. At this time his commitment to help his community heal, grow, and flourish budded when he became a registered yoga teacher. Since then he has greatly expanded his therapeutic skill set, and also has the opportunity to work within his community as a registered nurse, a licensed massage therapist, and a certified reiki practitioner. He has applied these skills in varied settings including wellness centers, community centers, inpatient hospital settings, personal practice, volunteer activities, and in clients living spaces.
                     </Card.Text>
