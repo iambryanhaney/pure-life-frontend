@@ -105,13 +105,13 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-.card-img-top {
+.profile-intro .card-img-top {
   width: 200px;
   border-radius: 5px; 
   box-shadow: 0px 0px 22px 3px #343a40;
 }
 
-.card-title {
+.profile-intro .card-title {
   font-size: 2rem;
   text-decoration-line: underline;
   text-shadow: 0px 0px 20px rgb(0, 45, 82);

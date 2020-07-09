@@ -56,7 +56,12 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <p className="status" style={{ color: '#00ff00' }}>Logged in as {this.state.first_name}</p>
+        {
+          this.state.loggedIn ?
+            <p className="status" style={{ color: '#00ff00' }}>Logged in as {this.state.first_name}</p>
+            :
+            null
+        }
         <NavSite loggedIn={this.state.loggedIn} logout={this.logout} first_name={this.state.first_name} />
         {this.state.redirect ? <Redirect to={this.state.redirect} /> : null}
         <Route path='/' exact render={() => <Home />} />
