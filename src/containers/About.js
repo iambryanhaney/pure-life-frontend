@@ -1,4 +1,5 @@
 import React from 'react'
+import ProfilePic from '../assets/media/michael-profile-2.jpg'
 
 import Card from 'react-bootstrap/Card'
 export default function About() {
@@ -6,8 +7,7 @@ export default function About() {
         <div>
             <h1> Meet +About </h1>
             <Card style={{ width: '90%', margin: '10px auto' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                !!!!!!!!!ADD PROFILE PICTURE!!!!!!!!!
+                <Card.Img variant="top" src={ProfilePic} />
                 <Card.Body>
                     <Card.Title>Michael Ray Wilson </Card.Title>
                     <Card.Text>

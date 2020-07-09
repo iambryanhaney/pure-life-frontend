@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 
 import Hiking from '../assets/media/hiking.jpg'
-import Zen1 from '../assets/media/zen1.png'
+import Zen1 from '../assets/media/zen1.jpg'
 import Zen2 from '../assets/media/zen2.jpg'
 export default function ControlledCarousel() {
     const [index, setIndex] = useState(0);
