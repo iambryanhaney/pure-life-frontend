@@ -87,3 +87,12 @@ body {
   height: 100%;
   margin: 50px auto;
 }
+
+.status {
+  z-index: 10000;
+  position: fixed;
+  width: 150px;
+  padding: 0;
+  top:0;
+  right:0;
+}

@@ -18,7 +18,6 @@ export default function NavSite(props) {
                         {
                             props.loggedIn ?
                                 <>
-                                    <h6 style={{ color: '#00ff00' }}>Logged in as {props.first_name}</h6>
                                     <NavLink to="/logout" activeStyle={{ color: '#00FF00' }} onClick={props.logout}>Logout </NavLink>
                                 </>
                                 :
