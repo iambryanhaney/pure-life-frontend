@@ -12,6 +12,7 @@ export default function NavSite(props) {
                 <NavLink to="/about" activeStyle={{ color: '#00FF00' }}>About </NavLink>
                 <NavLink to="/holism" activeStyle={{ color: '#00FF00' }}>Holism </NavLink>
                 <NavLink to="/pricing" activeStyle={{ color: '#00FF00' }}>Pricing </NavLink>
+                <NavLink to="/schedule" activeStyle={{ color: '#00FF00' }}>Schedule</NavLink>
             </Nav>
             <Nav className="mr-auto">
                 {
