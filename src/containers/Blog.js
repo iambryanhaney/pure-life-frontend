@@ -27,7 +27,6 @@ export default class Blog extends Component {
             .then(res => res.json())
             .then(posts => {
                 const sortedPosts = [...posts].sort((a, b) => a.id - b.id)
-
                 this.setState({ posts: sortedPosts, spinner: false })
             })
     }
