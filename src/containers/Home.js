@@ -1,12 +1,27 @@
 import React from 'react'
 
-import Jumbotron from 'react-bootstrap/Jumbotron'
+import ListGroup from 'react-bootstrap/ListGroup'
+import ControlledCarousel from '../components/ControlledCarousel'
+
+const testimonies = [
+    "Michael's one helluva Murse!",
+    "He gave me a ride in a pedicab in '08 and in '20 he gave me chest compressions.",
+    "Michael helped me go from beast mode to full on CYBORG mode!"
+]
 export default function Home() {
     return (
-        <Jumbotron style={{ marginTop: '70px', textAlign: 'center' }}>
-            <h2> Pure Life Holistic Care and Lifestyle Coaching </h2>
-            <h6>with Michael Ray Wilson, RN, LMT, CRP, RYT</h6>
-        </Jumbotron>
-
+        <div >
+            <ControlledCarousel />
+            <div className="testimonies">
+                <h4> Talk +Testify</h4>
+                <ListGroup>
+                    {
+                        testimonies.map((t, i) => {
+                            return <ListGroup.Item key={i}>"{t}"</ListGroup.Item>
+                        })
+                    }
+                </ListGroup>
+            </div>
+        </div>
     )
 }

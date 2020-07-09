@@ -24,6 +24,7 @@ class App extends React.Component {
     this.state = {
       loggedIn: false,
       is_admin: false,
+      first_name: '',
       redirect: null
     }
   }
@@ -32,7 +33,8 @@ class App extends React.Component {
     if (window.localStorage.auth_token) {
       this.setState({
         loggedIn: true,
-        is_admin: window.localStorage.is_admin,
+        is_admin: window.localStorage.is_admin === 'false' ? false : true,
+        first_name: window.localStorage.first_name,
       })
     }
   }
@@ -40,11 +42,12 @@ class App extends React.Component {
   logout = () => {
     delete window.localStorage.auth_token
     delete window.localStorage.is_admin
+    delete window.localStorage.first_name
     window.location.reload()
   }
   setUser = user => {
     this.setState({
-      user,
+      first_name: user.first_name,
       loggedIn: true,
       is_admin: user.is_admin,
       redirect: '/'
@@ -53,7 +56,8 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <NavSite loggedIn={this.state.loggedIn} logout={this.logout} />
+        <p className="status" style={{ color: '#00ff00' }}>Logged in as {this.state.first_name}</p>
+        <NavSite loggedIn={this.state.loggedIn} logout={this.logout} first_name={this.state.first_name} />
         {this.state.redirect ? <Redirect to={this.state.redirect} /> : null}
         <Route path='/' exact render={() => <Home />} />
         <Container style={{ marginTop: '100px' }}>

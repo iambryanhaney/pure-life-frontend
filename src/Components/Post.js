@@ -5,7 +5,9 @@ import Button from 'react-bootstrap/Button'
 import Accordion from 'react-bootstrap/Accordion'
 export default function Post(props) {
     const { title, content, created_at, id } = props.post
+
     return (
+
         <Accordion defaultActiveKey="1" style={{ marginTop: '5px', padding: '5px' }}>
             <Card style={{ borderColor: '#00FF00' }}>
                 <Card.Header>
@@ -18,7 +20,7 @@ export default function Post(props) {
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
                     <Card.Body>
-                        <Card.Text >{content}</Card.Text>
+                        <Card.Text dangerouslySetInnerHTML={{__html: content}} />
                         {
                             props.is_admin ?
                                 <>
@@ -35,3 +37,9 @@ export default function Post(props) {
         </Accordion>
     )
 }
+
+
+
+
+{/* <div dangerouslySetInnerHTML={ {__html: content}} /> */ }
+

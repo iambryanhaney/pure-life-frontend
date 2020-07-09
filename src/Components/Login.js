@@ -31,6 +31,7 @@ export default class Login extends Component {
                 if (json.user) {
                     window.localStorage.auth_token = json.auth_token
                     window.localStorage.is_admin = json.user.is_admin
+                    window.localStorage.first_name = json.user.first_name
                     this.props.setUser(json.user)
                 } else {
                     this.setState({ errors: json.errors })
@@ -50,13 +51,12 @@ export default class Login extends Component {
     render() {
         return (
             <div>
+                <h1> Login </h1>
+                <div className="login-container">
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" name="email" value={this.state.email} required onChange={this.handleOnChange} />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
@@ -67,6 +67,7 @@ export default class Login extends Component {
                         Submit
                     </Button>
                 </Form>
+                </div>
                 {
                     this.state.errors ? this.renderErrors() : null
                 }

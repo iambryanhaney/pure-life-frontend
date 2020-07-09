@@ -11,9 +11,7 @@ body {
   color: '#00FF00';
 }
 .jumbotron {
-  background-image: url("./assets/media/download.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-image: url("./assets/media/hiking.jpg"); */
   background-color: rgb(255,255,255);
 }
 
@@ -35,4 +33,67 @@ body {
   color: #00FF00;
   background: #5e6266;
 
+}
+
+.carousel {
+  margin-top: 71px;
+}
+
+.carousel-indicators li{
+  background-color:#00FF00;
+}
+.carousel img {
+  height: 500px;
+}
+
+
+.user-actions {
+  display: flex;
+  align-content: center;
+  position: absolute;
+  right: 0;
+}
+
+
+.testimonies {
+  max-width: 950px;
+  margin: 20px auto;
+}
+
+.testimonies .list-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+
+}
+
+.testimonies .list-group-item {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  text-align: left;
+  border-radius: 5px;
+  color: #343a40;
+  margin: 5px;
+  background-color: #FFF;
+  box-shadow: 0px 0px 5px #00FF00;
+  font-size: 1.5rem;
+}
+
+.login-container {
+  width: 300px;
+  height: 100%;
+  margin: 50px auto;
+}
+
+.status {
+  z-index: 10000;
+  position: fixed;
+  width: 150px;
+  padding: 0;
+  top:0;
+  right:0;
+  font-size: .4rem;
 }
