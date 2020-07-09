@@ -12,6 +12,7 @@ import Blog from './containers/Blog'
 import Home from './containers/Home'
 import Holism from './containers/Holism'
 import Pricing from './containers/Pricing'
+import Schedule from './containers/Schedule'
 import Login from './components/Login'
 import Signup from './components/Signup'
 
@@ -64,6 +65,7 @@ class App extends React.Component {
           <Route path='/about' exact render={() => <About />} />
           <Route path='/holism' exact render={() => <Holism />} />
           <Route path='/pricing' exact render={() => <Pricing />} />
+          <Route path='/schedule' exact render={() => <Schedule />} />
           <Route path='/logout' exact render={() => this.logout} />
           <Route path='/signup' exact render={() => <Signup setUser={this.setUser} signupURL={signupURL} />} />
           <Route path='/login' exact render={() => <Login loginURL={userLoginURL} setUser={this.setUser} />} />
