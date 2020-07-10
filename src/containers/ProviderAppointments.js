@@ -89,7 +89,7 @@ export default class ProviderAppointments extends Component {
         return (
             <div>
                 <h1 style={{ textAlign: 'center'}}>Appointments</h1>
-                <h6 style={{ textAlign: 'center'}}>Hover over appointment to see patient info.</h6>
+                <h6 style={{ textAlign: 'center'}}>Hover over appointments to see patient info.</h6>
                 <Button variant="info" onClick={() => this.updateWeek(-1)}>&lt;</Button>
                 <span> Week </span>
                 <Button variant="info" onClick={() => this.updateWeek(1)}>&gt;</Button>

@@ -46,7 +46,7 @@ export default class ProviderAppointment extends Component {
                 this.fetchPatientName()
             }
             return (
-                <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={this.renderTooltip} >
+                <OverlayTrigger placement="right" delay={{ show: 150, hide: 100 }} overlay={this.renderTooltip} >
                     <td style={{ textAlign: 'center', backgroundColor: this.state.bookedColor }} >
                         Booked
                     </td> 

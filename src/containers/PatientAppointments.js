@@ -12,7 +12,6 @@ import DeleteAppointmentModal from '../components/DeleteAppointmentModal'
 
 
 const PROVIDER_URL = 'http://localhost:3001/providers'
-const PATIENT_URL = 'http://localhost:3001/patients'
 const APPOINTMENT_URL = 'http://localhost:3001/appointments'
 
 
@@ -47,7 +46,7 @@ export default class PatientAppointments extends Component {
         .then(timeslots => this.setTimeslots(timeslots))
         .catch(err => console.error(err))
 
-        fetch(`${PATIENT_URL}/${this.props.patient_id}/appointments`)
+        fetch(APPOINTMENT_URL)
         .then(resp => resp.json())
         .then(appointments => this.setAppointments(appointments))
         .catch(err => console.error(err))
@@ -136,6 +135,7 @@ export default class PatientAppointments extends Component {
                 <PatientAppointment date={this.state.dates[day]} 
                     timeslot={this.state.timeslots.find(ts => ts.day === day && ts.hour === hour)}
                     appointment={this.state.appointments.find(appt => appt.date === slotDate) }
+                    patient_id={this.props.patient_id}
                     updateShowToast={this.updateShowToast} 
                     confirmCreateAppointment={this.confirmCreateAppointment} 
                     confirmDeleteAppointment={this.confirmDeleteAppointment} />
