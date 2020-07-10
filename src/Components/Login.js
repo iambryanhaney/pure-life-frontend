@@ -32,6 +32,7 @@ export default class Login extends Component {
                     window.localStorage.auth_token = json.auth_token
                     window.localStorage.is_admin = json.user.is_admin
                     window.localStorage.first_name = json.user.first_name
+                    window.localStorage.type = json.user.role
                     this.props.setUser(json.user)
                 } else {
                     this.setState({ errors: json.errors })
@@ -53,20 +54,20 @@ export default class Login extends Component {
             <div>
                 <h1> Login </h1>
                 <div className="login-container">
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" name="email" value={this.state.email} required onChange={this.handleOnChange} />
-                    </Form.Group>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" placeholder="Enter email" name="email" value={this.state.email} required onChange={this.handleOnChange} />
+                        </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" name="password" required value={this.state.password} onChange={this.handleOnChange} />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Password" name="password" required value={this.state.password} onChange={this.handleOnChange} />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Submit
                     </Button>
-                </Form>
+                    </Form>
                 </div>
                 {
                     this.state.errors ? this.renderErrors() : null
