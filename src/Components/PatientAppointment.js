@@ -20,14 +20,25 @@ export default class PatientAppointment extends Component {
 
     renderSlot = () => {
         if (this.props.appointment) {
-            return (
-                <td style={{ textAlign: 'center', backgroundColor: this.state.bookedColor }}
-                    onClick={() => this.props.confirmDeleteAppointment(this.props.appointment)}
-                    onMouseOver={() => this.highlightTimeslot(true)}
-                    onMouseOut={() => this.highlightTimeslot(false)} >
-                    Booked
-                </td> 
-            )
+            console.log(`appt: ${typeof this.props.appointment.patient_id}  |  p_id: ${typeof this.props.patient_id}`)
+            if (this.props.appointment.patient_id === Number(this.props.patient_id)) {
+                return (
+                    <td style={{ textAlign: 'center', backgroundColor: this.state.bookedColor }}
+                        onClick={() => this.props.confirmDeleteAppointment(this.props.appointment)}
+                        onMouseOver={() => this.highlightTimeslot(true)}
+                        onMouseOut={() => this.highlightTimeslot(false)} >
+                        Booked
+                    </td> 
+                )
+            } else {
+                return (
+                    <td style={{ textAlign: 'center', backgroundColor: '#61533d' }}
+                        onClick={() => this.props.updateShowToast(true)} >
+                        Unavailable
+                    </td>
+                )
+            }
+            
         } else if (this.props.timeslot.available) {
             return (
                 <td style={{ textAlign: 'center', backgroundColor: this.state.availableColor }}
