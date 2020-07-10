@@ -2,6 +2,14 @@ body {
   background: #dcdcdc;
 }
 
+h1 {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
 .mr-auto a {
   margin: 15px;
   color: #eee;
@@ -54,6 +62,12 @@ body {
   right: 0;
 }
 
+
+.indented-welcome {
+  max-width: 950px;
+  text-indent: 30px;
+  margin: 20px auto;
+}
 
 .testimonies {
   max-width: 950px;

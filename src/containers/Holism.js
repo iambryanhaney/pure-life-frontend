@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row'
 export default function Holism() {
     return (
         <div>
-            <h1>Holism +Experiences</h1>
+            <h1>Holism + Experiences</h1>
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="1">
                 <Row>
                     <Col sm={4}>

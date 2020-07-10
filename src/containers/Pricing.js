@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table'
 export default function Pricing() {
     return (
         <div>
-            <h1>Pricing +Plans</h1>
+            <h1>Pricing + Plans</h1>
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
