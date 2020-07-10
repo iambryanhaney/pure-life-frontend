@@ -15,9 +15,13 @@ export default function NavSite(props) {
                     <NavLink to="/holism" activeStyle={{ color: '#00FF00' }}>Holism </NavLink>
                     <NavLink to="/pricing" activeStyle={{ color: '#00FF00' }}>Pricing </NavLink>
 
-                    <NavLink to="/patient-appointments" activeStyle={{ color: '#00FF00' }}>Patient Appointments</NavLink>
-                    <NavLink to="/provider-appointments" activeStyle={{ color: '#00FF00' }}>Provider Appointments</NavLink>
-                    <NavLink to="/schedule" activeStyle={{ color: '#00FF00' }}>Provider Schedule</NavLink>
+                    { props.role === "patient" ? 
+                        <NavLink to="/patient-appointments" activeStyle={{ color: '#00FF00' }}>Patient Appointments</NavLink> : null }
+                    { props.role === "provider" ?
+                        <>
+                            <NavLink to="/provider-appointments" activeStyle={{ color: '#00FF00' }}>Provider Appointments</NavLink>
+                            <NavLink to="/schedule" activeStyle={{ color: '#00FF00' }}>Provider Schedule</NavLink>
+                        </> : null }
 
                     <div className="user-actions">
                         {

@@ -47,7 +47,7 @@ export default class PatientAppointments extends Component {
         .then(timeslots => this.setTimeslots(timeslots))
         .catch(err => console.error(err))
 
-        fetch(`${PATIENT_URL}/1/appointments`)
+        fetch(`${PATIENT_URL}/${this.props.patient_id}/appointments`)
         .then(resp => resp.json())
         .then(appointments => this.setAppointments(appointments))
         .catch(err => console.error(err))
@@ -72,7 +72,7 @@ export default class PatientAppointments extends Component {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
-            body: JSON.stringify({ patient_id: 1, provider_id: 1, date: date})
+            body: JSON.stringify({ patient_id: this.props.patient_id, provider_id: 1, date: date})
         })
         .then(resp => resp.json())
         .then(appointment => this.updateAppointmentsWithCreated(appointment))
@@ -169,7 +169,7 @@ export default class PatientAppointments extends Component {
         return (
             <div>
                 <h1 style={{ textAlign: 'center'}}>Appointments</h1>
-                <h6 style={{ textAlign: 'center'}}>Click to reserve or edit your appointment times.</h6>
+                <h6 style={{ textAlign: 'center'}}>Welcome { `${this.props.first_name} ${this.props.last_name}` }! Click to reserve or edit an appointment times.</h6>
                 <Button variant="info" onClick={() => this.updateWeek(-1)}>&lt;</Button>
                 <span> Week </span>
                 <Button variant="info" onClick={() => this.updateWeek(1)}>&gt;</Button>
@@ -195,7 +195,7 @@ export default class PatientAppointments extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.state.timeslots.length > 0 ? this.buildTableRows() : null }
+                        { (this.state.timeslots.length > 0 && this.state.appointments) ? this.buildTableRows() : null }
                     </tbody>
     
                 </Table>
