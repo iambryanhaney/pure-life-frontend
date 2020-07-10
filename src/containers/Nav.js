@@ -15,6 +15,7 @@ export default function NavSite(props) {
                     <NavLink to="/holism" activeStyle={{ color: '#00FF00' }}>Holism </NavLink>
                     <NavLink to="/pricing" activeStyle={{ color: '#00FF00' }}>Pricing </NavLink>
                     <NavLink to="/schedule" activeStyle={{ color: '#00FF00' }}>Schedule</NavLink>
+                    <NavLink to="/appointments" activeStyle={{ color: '#00FF00' }}>Appointments</NavLink>
                     <div className="user-actions">
                         {
                             props.loggedIn ?
