@@ -83,7 +83,7 @@ export default class Blog extends Component {
     render() {
         return (
             <div>
-                <h1> Blog +Inspire</h1>
+                <h1> Blog + Inspire</h1>
                 {
                     this.props.is_admin ? <NewPost url={blogURL} addNewPost={this.addNewPost} /> : null
                 }

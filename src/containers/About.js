@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card'
 export default function About() {
     return (
         <div>
-            <h1> Meet +About </h1>
+            <h1> Meet + About </h1>
             <Card style={{ width: '90%', margin: '10px auto' }}>
                 <div className="profile-intro">
                 <Card.Img variant="top" src={ProfilePic} />
