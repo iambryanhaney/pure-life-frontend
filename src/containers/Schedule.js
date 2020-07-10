@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import moment from 'moment'
 import Table from 'react-bootstrap/Table'
 import Timeslot from '../components/Timeslot'
 
@@ -8,7 +7,7 @@ import Timeslot from '../components/Timeslot'
 
 
 const PROVIDER_URL = 'http://localhost:3001/providers'
-const TIMESLOT_URL = 'http://locaLhost:3001/timeslots'
+const TIMESLOT_URL = 'http://localhost:3001/timeslots'
 
 
 export default class Schedule extends Component {
@@ -36,8 +35,8 @@ export default class Schedule extends Component {
         for (let hour = 6; hour <= 22; hour++) {
             table.push(
                 <tr>
-                    <td style={{ textAlign: 'center' }}>
-                        { hour <= 12 ? hour : hour-12 }:00 { hour < 12 ? 'AM' : 'PM' }
+                    <td style={{ textAlign: 'right' }}>
+                        { hour <= 12 ? hour : hour-12 }:00 { hour < 12 ? 'AM\xa0\xa0' : 'PM\xa0\xa0' }
                     </td>
                     { this.buildTableColumns(hour) }
                 </tr>
@@ -84,19 +83,19 @@ export default class Schedule extends Component {
     render() {
         return (
             <div>
-                <h1 style={{ textAlign: 'center'}}>Your (provider name) Regular Weekly Availability</h1>
-                {/* <h2>{moment().format('dddd')}</h2> */}
-                <Table striped bordered hover variant="dark">
+                <h1 style={{ textAlign: 'center' }} >Schedule</h1>
+                <h6 style={{ textAlign: 'center' }} >Click to set your standard, weekly availability.</h6>
+                <Table striped bordered hover variant="dark" size="sm">
                     <thead>
                         <tr>
-                            <th style={{ textAlign: 'center' }}>Time</th>
-                            <th style={{ textAlign: 'center' }}>Monday</th>
-                            <th style={{ textAlign: 'center' }}>Tuesday</th>
-                            <th style={{ textAlign: 'center' }}>Wednesday</th>
-                            <th style={{ textAlign: 'center' }}>Thursday</th>
-                            <th style={{ textAlign: 'center' }}>Friday</th>
-                            <th style={{ textAlign: 'center' }}>Saturday</th>
-                            <th style={{ textAlign: 'center' }}>Sunday</th>
+                            <th style={{ textAlign: 'center', width: '10%' }}>Time</th>
+                            <th style={{ textAlign: 'center', width: '11.25%' }}>Sunday</th>
+                            <th style={{ textAlign: 'center', width: '11.25%' }}>Monday</th>
+                            <th style={{ textAlign: 'center', width: '11.25%' }}>Tuesday</th>
+                            <th style={{ textAlign: 'center', width: '11.25%' }}>Wednesday</th>
+                            <th style={{ textAlign: 'center', width: '11.25%' }}>Thursday</th>
+                            <th style={{ textAlign: 'center', width: '11.25%' }}>Friday</th>
+                            <th style={{ textAlign: 'center', width: '11.25%' }}>Saturday</th>                            
                         </tr>
                     </thead>
                     <tbody>
