@@ -15,6 +15,7 @@ import Pricing from './containers/Pricing'
 import Schedule from './containers/Schedule'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import Appointments from './components/Appointments'
 
 const signupURL = 'http://localhost:3001/signup'
 const userLoginURL = 'http://localhost:3001/auth/login'
@@ -24,6 +25,7 @@ class App extends React.Component {
     this.state = {
       loggedIn: false,
       is_admin: false,
+      role: null,
       first_name: '',
       redirect: null
     }
@@ -35,6 +37,7 @@ class App extends React.Component {
         loggedIn: true,
         is_admin: window.localStorage.is_admin === 'false' ? false : true,
         first_name: window.localStorage.first_name,
+        role: window.localStorage.role
       })
     }
   }
@@ -43,14 +46,16 @@ class App extends React.Component {
     delete window.localStorage.auth_token
     delete window.localStorage.is_admin
     delete window.localStorage.first_name
+    delete window.localStorage.role
     window.location.reload()
   }
   setUser = user => {
     this.setState({
       first_name: user.first_name,
       loggedIn: true,
+      role: user.role,
       is_admin: user.is_admin,
-      redirect: '/'
+      redirect: '/appointments'
     })
   }
   render() {
@@ -74,6 +79,7 @@ class App extends React.Component {
           <Route path='/logout' exact render={() => this.logout} />
           <Route path='/signup' exact render={() => <Signup setUser={this.setUser} signupURL={signupURL} />} />
           <Route path='/login' exact render={() => <Login loginURL={userLoginURL} setUser={this.setUser} />} />
+          <Route path='/appointments' exact render={() => <Appointments loggedIn={this.state.loggedIn}/>} />
         </Container>
       </Router >
     )

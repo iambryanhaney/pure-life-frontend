@@ -17,7 +17,9 @@ export default class Signup extends Component {
             last_name: '',
             password: '',
             password_confirmation: '',
-            errors: undefined
+            errors: undefined,
+            provider: false,
+            provider_access: ''
         }
     }
     handleSubmit = e => {
@@ -25,19 +27,24 @@ export default class Signup extends Component {
         e.stopPropagation()
         if (e.currentTarget.checkValidity()) {
             const { email, first_name, last_name, password, password_confirmation } = this.state
+            const body = {
+                email,
+                first_name,
+                last_name,
+                password,
+                password_confirmation
+            }
+            if (this.state.provider) {
+                body.provider = this.state.provider
+                body.provider_access = this.state.provider_access
+            }
             fetch(this.props.signupURL, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
                 },
-                body: JSON.stringify({
-                    email,
-                    first_name,
-                    last_name,
-                    password,
-                    password_confirmation
-                })
+                body: JSON.stringify(body)
             })
                 .then(res => res.json())
                 .then(json => {
@@ -61,6 +68,9 @@ export default class Signup extends Component {
         })
     }
     renderErrors() {
+        if (typeof this.state.errors === 'string') {
+            return <Alert variant="danger"> {this.state.errors}</Alert>
+        }
         const keys = Object.keys(this.state.errors)
         return keys.map((key, idx) => {
             return <Alert key={idx} variant="danger"> {`${key} ${this.state.errors[key][0]}`}</Alert>
@@ -150,6 +160,26 @@ export default class Signup extends Component {
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Form.Row>
+                    <Form.Group controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Are you a provider?" onClick={() => this.setState({ provider: !this.state.provider })} />
+                    </Form.Group>
+
+                    {
+                        this.state.provider ?
+                            <Form.Group as={Col} md="4" controlId="validationCustom04">
+                                <Form.Label>Provider Access Key</Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    placeholder="provider access key"
+                                    required
+                                    name="provider_access"
+                                    value={this.state.provider_access}
+                                    onChange={this.handleOnChange}
+                                />
+                            </Form.Group>
+                            :
+                            null
+                    }
                     <Button type="submit">Signup</Button>
                 </Form>
                 {
