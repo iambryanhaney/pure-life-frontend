@@ -32,7 +32,10 @@ export default class Login extends Component {
                     window.localStorage.auth_token = json.auth_token
                     window.localStorage.is_admin = json.user.is_admin
                     window.localStorage.first_name = json.user.first_name
-                    window.localStorage.type = json.user.role
+                    window.localStorage.last_name = json.user.last_name
+                    window.localStorage.role = json.user.role
+                    window.localStorage.patient_id = json.user.patient_id
+                    window.localStorage.provider_id = json.user.provider_id
                     this.props.setUser(json.user)
                 } else {
                     this.setState({ errors: json.errors })
